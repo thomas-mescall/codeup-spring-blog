@@ -8,12 +8,14 @@ import java.util.Random;
 
 @Controller
 public class RollDiceController {
-    @GetMapping("/roll-dice/n")
-    @ResponseBody
-    public int diceRoll() {
-        Random random = new Random();
-        return random.nextInt(6);
+    @GetMapping("/roll-dice")
+    public String intro() {
+        return "roll-dice";
     }
+//    public int diceRoll() {
+//        Random random = new Random();
+//        return random.nextInt(6);
+//    }
 
 
 }
