@@ -3,6 +3,7 @@ package com.codeup.codeupspringblog.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -14,7 +15,7 @@ public class PostController {
     }
     @GetMapping("/posts/{id}")
     @ResponseBody
-    public String id(@PathVariable("id") String id) {
+    public String id(@PathVariable String id) {
         return id;
     }
     @GetMapping("posts/create")
@@ -22,7 +23,7 @@ public class PostController {
     public String view() {
         return "view the form for creating a post";
     }
-    @GetMapping("posts/create")
+    @PostMapping("posts/create")
     @ResponseBody
     public String create() {
         return "create a post";
