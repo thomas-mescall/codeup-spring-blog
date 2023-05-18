@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Guess That Number!</h1>
-<form method="get" action="roll-dice.html">
+<form method="get" th:action="@{/roll-dice}">
     <label for="number">Pick Your Poison
 <label id="number" for="1">1
     <input name="chosen" id="1" type="radio" value="1">
@@ -32,19 +32,8 @@
     </label>
     <button type="submit">CONTINUE???</button>
 </form>
-<!--<button class="guess">Push To Guess</button>-->
-<!--<div>You Have Chosen: <span th:text="${num}">???</span></div>-->
-<!--<div>That Number is: <span th:text="${isTrue}">-__-</span></div>-->
-<!--<div>The Correct Number Is: <span th:text="${answer}"></span></div>-->
-<!--<div th:fragment="roll-dice"></div>-->
+<h5>The Correct Number is: </h5>
 
-<!--<script>-->
-
-<!--    addEventListener('click', () => {-->
-
-<!--    })-->
-
-<!--</script>-->
 
 </body>
 </html>
