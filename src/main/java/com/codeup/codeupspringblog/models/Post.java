@@ -9,25 +9,25 @@ public class Post {
 //    private String body;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+//    @Column(name = "id", nullable = false)
     private Long id;
 
-
-//    public Post(String title, String body) {
-//        this.title = title;
-//        this.body = body;
-//    }
-
-    public Post() {
-
-    }
-
     @Column(nullable = false, length = 50)
-        private String title;
+    private String title;
 
     @Column(nullable = false)
     private String description;
 
+
+    public Post(Long id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Post() {
+
+    }
 
     public String getTitle() {
         return title;
