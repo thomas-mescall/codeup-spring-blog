@@ -36,10 +36,10 @@ public class PostController {
     public String view() {
         return "posts/create";
     }
-    @PostMapping("posts/create")
+    @PostMapping("posts")
     public String create(@RequestParam String title, @RequestParam String description) {
         Post post = new Post(1L, title, description);
         postDao.save(post);
-        return "redirects:/posts";
+        return "redirect:/posts";
     }
 }
