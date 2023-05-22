@@ -34,7 +34,8 @@ public class PostController {
         return "posts/show";
     }
     @GetMapping("posts/create")
-    public String view() {
+    public String view(Model model) {
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
 
@@ -46,5 +47,12 @@ public class PostController {
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts";
+    }
+
+    @GetMapping("posts/{id}/edit")
+    public String editPost(@PathVariable String id, Model model) {
+        Post post = postDao.getReferenceById(Long.valueOf(id));
+        model.addAttribute("post", post);
+        return "posts/edit";
     }
 }

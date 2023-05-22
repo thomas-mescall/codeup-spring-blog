@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org" lang="eng">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="INSERT CSS LINK">-->
-    <title>Create</title>
+    <title>$My Project$</title>
 </head>
 <body>
-<h1>THIS IS THE CREATION STATION</h1>
+<h1>EDIT</h1>
+
 <form th:action="@{/posts}" th:method="post" th:object="${post}">
 
-<!--    <label for="title">Title: </label>-->
-<!--    <input type="text" id="title" name="title">-->
+
     <label>
         <input th:field="*{title}"/>
     </label>
 
-<!--    <label for="description">Description: </label>-->
-<!--    <input type="text" id="description" name="description">-->
+
     <label>
         <input th:field="*{description}"/>
     </label>
 
-    <!--    <button type="submit">Submit</button>-->
+
     <input type="submit"/>
 
 </form>
