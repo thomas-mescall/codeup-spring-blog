@@ -26,7 +26,7 @@ public class PostController {
     }
     @GetMapping("/posts")
     public String showAllPosts(Model model) {
-        List<Post> posts = new ArrayList<>();
+//        List<Post> posts = new ArrayList<>();
         model.addAttribute("posts", postDao.findAll());
         return "posts/index";
     }
@@ -41,6 +41,18 @@ public class PostController {
     public String view(Model model) {
         model.addAttribute("post", new Post());
         return "posts/create";
+    }
+
+    @PostMapping("posts/create")
+    public String createPost(@ModelAttribute Post post) {
+        User user = userDao. findById(1L).get();
+        post.setUser(user);
+        postDao.save(post);
+
+        String title = "This is my title, there are many like it, but this one is mine";
+        String description = "my back hurts really bad";
+        emailService.prepareAndSend(post, title, description);
+        return "redirect:/posts";
     }
 
     @PostMapping("posts")
