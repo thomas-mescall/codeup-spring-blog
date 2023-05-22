@@ -24,16 +24,12 @@ public class PostController {
     @GetMapping("/posts")
     public String showAllPosts(Model model) {
         List<Post> posts = new ArrayList<>();
-        posts.add(new Post(1L, "FIRST", "FIRST"));
-        posts.add(new Post(2L, "SECOND", "SECOND"));
-        model.addAttribute("posts", posts);
+        model.addAttribute("posts", postDao.findAll());
         return "posts/index";
     }
     @GetMapping("/posts/{id}")
     public String showPost(@PathVariable String id, Model model) {
-//        String title = "This is a title";
-//        String body = "This is a body";
-        Post post = new Post();
+        Post post = postDao.getReferenceById(Long.valueOf(id));
         model.addAttribute("post", post);
         return "posts/show";
     }
@@ -41,6 +37,7 @@ public class PostController {
     public String view() {
         return "posts/create";
     }
+
     @PostMapping("posts")
     public String create(@RequestParam String title, @RequestParam String description) {
         Post post = new Post( title, description);
