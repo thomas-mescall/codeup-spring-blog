@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="eng">
+<html xmlns:th="http://www.thymeleaf.org" lang="eng">
 
 
 
@@ -27,13 +27,7 @@
   You have been logged out.
 </div>
 
-<div sec:authorize="isAuthenticated()">
-  This content is only shown to authenticated users.
 
-  User ID: <span th:text="${#authentication.principal.id}"/>
-  Username: <span th:text="${#authentication.principal.username}"/>
-  Email: <span th:text="${#authentication.principal.email}"/>
-</div>
 
 <form th:action="@{/login}" method="post">
   <label for="username">Username</label>
