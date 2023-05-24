@@ -64,6 +64,9 @@ public class Post {
         return id;
     }
 
+
+
+
     @ManyToOne
     @JoinColumn (name = "user_id")
     private User user;
